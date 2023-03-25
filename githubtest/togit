@@ -1,0 +1,27 @@
+#!/bin/bash
+
+REPO="whoami"
+TOKEN="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"
+USER="Amyn00"
+
+
+git status
+
+git add .
+
+read -p "write you message here: " msg
+git commit -m "&msg"
+
+if git ls-remote -l "$REPO" -q -t "$TOKEN" &> /dev/null
+then
+	git pull
+
+	git push
+else
+	echo "generate new token!"
+	read -p "write your new Token: " nTOKEN
+	git remote set-url origin https://$USER:$nTOKEN@github.com/$USER/$REPO.git
+	export TOKEN="$nTOKEN"
+	git pull
+	git push
+fi
