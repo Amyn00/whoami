@@ -1,0 +1,13 @@
+#!/bin/bash
+
+REPO="https://github.com/Amyn00/whoami.git"
+TOKEN="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"
+
+
+
+if git ls-remote -h "$REPO" -q -t "$TOKEN" &> /dev/null
+then
+	echo "token valide"
+else
+	echo "token invalide"
+fi
