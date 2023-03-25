@@ -10,7 +10,7 @@ git status
 git add .
 
 read -p "write you message here: " msg
-git commit -m "&msg"
+git commit -m "$msg"
 
 if git ls-remote -l "$REPO" -q -t "$TOKEN" &> /dev/null
 then
